@@ -1,0 +1,1 @@
+export * from './Interfaces/user-details.interface'

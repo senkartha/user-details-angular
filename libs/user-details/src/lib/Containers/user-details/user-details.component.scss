@@ -1,0 +1,91 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .user-details {
+        border: 1px solid black;
+        border-radius: 4px;
+        padding: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        min-width: 320px;
+
+        &__form {
+            &__element {
+                margin: 20px;
+
+                &.actions {
+                    justify-content: center;
+                    display: flex;
+                    margin-top: 25px;
+                    justify-content: space-around;
+
+                    .submit-button,
+                    .clear-button {
+                        height: 40px;
+                        width: 75px;
+                        border-radius: 4px;
+                    }
+
+                    .submit-button {
+                        background-color: green;
+                    }
+
+                    .clear-button {
+                        background-color: red;
+                    }
+                }
+
+                label {
+                    min-width: 100px;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+.danger {
+    color: red;
+}
+
+.success,
+.failure {
+    color: white;
+}
+
+.success {
+    background-color: green;
+    font-size: 20px;
+}
+
+.failure {
+    background-color: red;
+
+    &__label {
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+}
+
+.error-message {
+    font-size: 12px;
+}
+
+.status-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 4px;
+    width: 50%;
+    min-height: 50px;
+    text-align: center;
+    padding: 10px;
+}

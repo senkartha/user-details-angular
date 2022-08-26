@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="user-details">
+        <form class="user-details__form" (submit)="submitUserDetails()" #registerForm="ngForm">
+            <div class="user-details__form__element">
+                <label for="first-name">First Name: <span class="danger">*</span></label>
+                <input type="text" id="first-name" name="first-name" required [(ngModel)]="userDetails.firstName"
+                    #firstName="ngModel">
+                <div class="danger error-message" *ngIf="firstName.touched && firstName.errors?.required">First name is
+                    required</div>
+            </div>
+            <div class="user-details__form__element">
+                <label for="last-name">Last Name: <span class="danger">*</span></label>
+                <input type="text" id="last-name" name="last-name" required [(ngModel)]="userDetails.lastName"
+                    #lastName="ngModel">
+                <div class="danger error-message" *ngIf="lastName.touched && lastName.errors?.required">Last name is
+                    required</div>
+            </div>
+            <div class="user-details__form__element actions">
+                <button type="button" (click)="clearForm()" class="clear-button">Clear</button>
+                <button type="submit" [disabled]="!registerForm.form.valid" class="submit-button">Submit</button>
+            </div>
+        </form>
+    </div>
+    <ng-container *ngIf="isUserDetailsLoaded$ | async">
+        <div class="status-box failure" *ngIf="(isUserDetailsError$ | async) as error; else success">
+            <div class="failure__label">User addition failed with the following errors:</div>
+            <div>{{json.stringify(error)}}</div>
+        </div>
+        <ng-template #success>
+            <div class="status-box success" *ngIf="true">User Added Successfully</div>
+        </ng-template>
+    </ng-container>
+</div>
